@@ -15,13 +15,12 @@ public class CourseBuilder {
         this.instructor = instructor;
     }
 
-    public CourseBuilder addModule(Module m) {
-        modules.add(m);
+    public CourseBuilder addModules(List<Module> modules){
+        this.modules.addAll(modules);
         return this;
     }
-
-    public CourseBuilder addQuiz(Quiz q) {
-        quizzes.add(q);
+    public CourseBuilder addQuizzes(List<Quiz> quizzes){
+        this.quizzes.addAll(quizzes);
         return this;
     }
 
