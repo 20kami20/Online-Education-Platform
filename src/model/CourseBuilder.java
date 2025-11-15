@@ -33,7 +33,6 @@ public class CourseBuilder {
         return new Course(this);
     }
 
-    // --- Getters used by Course ---
     public String getTitle() { return title; }
     public String getInstructor() { return instructor; }
     public List<Module> getModules() { return modules; }

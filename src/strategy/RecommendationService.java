@@ -13,6 +13,6 @@ public class RecommendationService {
             System.out.println("RecommendationStrategy is null");
             return null;
         }
-        return RecommendationStrategy.recommend(user, courses);
+        return recommendationStrategy.recommend(user, courses);
     }
 }

@@ -1,4 +1,4 @@
-package Facade;
+package facade;
 import model.Course;
 import model.User;
 import strategy.RecommendationService;
@@ -28,8 +28,8 @@ public class Facade {
     public void sendAnnouncement(String message) {
         notificationService.notifyAll(new Notification("Announcement" + message));
     }
-    public void recommendCourses(User user, List<Course> courses) {
-        recommendationService.recommend(user, courses );
+    public List<Course> recommendCourses(User user, List<Course> courses) {
+        return recommendationService.recommend(user, courses );
     }
 
     public Course Gamify(Course course) {
