@@ -1,4 +1,4 @@
-package Strategy;
+package strategy;
 
 import java.util.List;
 import java.util.stream.Collectors;

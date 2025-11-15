@@ -1,4 +1,4 @@
-package Strategy;
+package strategy;
 
 import model.Course;
 import model.User;

@@ -3,7 +3,7 @@ package model;
 import java.util.Collections;
 import java.util.List;
 
-public class Course {
+public class Course{
     private final String title;
     private final String instructor;
     private final List<Module> modules;
@@ -19,8 +19,15 @@ public class Course {
     }
 
     public String getTitle() { return title; }
+
+    public void deliverContent(){
+        System.out.println("Delivering content of " + title);
+    }
+
     public String getInstructor() { return instructor; }
     public List<Module> getModules() { return modules; }
     public List<Quiz> getQuizzes() { return quizzes; }
     public double getPrice() { return price; }
+
+
 }
