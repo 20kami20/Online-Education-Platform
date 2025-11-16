@@ -1,7 +1,9 @@
 import facade.Facade;
 import model.*;
 import model.Module;
+import observer.EmailNotification;
 import observer.NotificationService;
+import observer.SMSNotification;
 import strategy.*;
 
 import java.util.List;
@@ -12,8 +14,8 @@ public class Main {
 
         Course SDP = new CourseBuilder("Design Pattern", "Cool Guy")
                 .addModules(List.of(
-                        new Module("Intro", "Welcome to Java"),
-                        new Module("OOP", "Classes and Objects")
+                        new Module("Builder", "Builder Pattern"),
+                        new Module("Factory", "Factory Pattern")
                 ))
                 .addQuizzes(List.of(
                         new Quiz("Midterm", 5)
@@ -23,8 +25,8 @@ public class Main {
 
         Course DAA = new CourseBuilder("Analysis of Algorithms", "Nursultan")
                 .addModules(List.of(
-                        new Module("Syntax", "Basics of Python"),
-                        new Module("Loops", "For and While")
+                        new Module("Hashing", "What is Hashing"),
+                        new Module("Fibonacci", "Number of Fibonacci")
                 ))
                 .addQuizzes(List.of(
                         new Quiz("Endterm", 10)
@@ -39,7 +41,11 @@ public class Main {
 
 
         NotificationService ns = new NotificationService();
+        ns.setStrategy(new EmailNotification());
+
         RecommendationService rs = new RecommendationService();
+
+
 
         Facade facade = new Facade(rs, ns);
 
@@ -48,6 +54,8 @@ public class Main {
 
         facade.register(student);
         facade.register(instructor);
+
+
 
         facade.sendAnnouncement("Platform updated with new features");
 

@@ -2,14 +2,20 @@ package observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import model.User;
 
 public class NotificationService {
-    private final List<Observer> observers = new ArrayList<>();
+    private final List<User> users = new ArrayList<>();
+    private NotificationStrategy strategy;
 
-    public void register(Observer o){ observers.add(o); }
-    public void unregister(Observer o){ observers.remove(o); }
+    public void setStrategy(NotificationStrategy strategy) {
+        this.strategy =  strategy;
+    }
+
+    public void register(User user){ users.add(user); }
+    public void unregister(User user){ users.remove(user); }
 
     public void notifyAll(Notification n){
-        for(Observer o : observers) o.update(n);
+        for(User u : users) strategy.sendNotification(u, n);
     }
 }
